@@ -49,6 +49,7 @@ impl BuilderExt for tonic_build::Builder {
 }
 fn main() {
     tonic_build::configure()
+        .protoc_arg("--experimental_allow_proto3_optional")
         .out_dir("src/pb")
         .compile(
             &["protos/hub.proto", "protos/health_check.proto"],
